@@ -1,0 +1,96 @@
+html {
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.el-row {
+  margin-bottom: 20px;
+}
+
+.el-button,
+.el-input__inner,
+.el-textarea__inner {
+  font-family: inherit;
+}
+
+body,
+.el-form-item__label,
+.el-input__inner,
+.el-message__icon,
+.el-message__content,
+.el-table .cell,
+.el-message-box__message,
+.el-breadcrumb__item,
+.el-dialog__body,
+.el-select-dropdown__item,
+.el-dropdown,
+.el-dropdown-menu__item,
+.el-textarea__inner,
+.el-upload-list__item-name {
+  font-size: 12px;
+}
+
+.el-dialog__title,
+.el-message-box__title {
+  font-size: 16px;
+}
+
+.el-row {
+  padding: 0 100px;
+}
+.el-row.row-hd {
+  height: 60px;
+  padding-bottom: 10px;
+}
+.row-bg {
+ background-color: #f9fafc;
+ border-bottom: 1px solid #e5e9f2;
+}
+
+.dialog.el-dialog > .el-dialog__body {
+  padding: 0;
+}
+.dialog.el-dialog > .el-dialog__body > img {
+    width: 100%;
+}
+.el-dropdown-link {
+  cursor: pointer;
+  color: #409EFF;
+}
+
+.animate-text {
+  font-weight: 200;
+  font-size: 1.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  text-align: center;
+}
+
+.animate-text .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+
+.description {
+  white-space: pre-line;
+}
+
+.list-inline {
+  padding-left: 0;
+  margin-left: -5px;
+  list-style: none;
+}
+.list-inline > li {
+  display: inline-block;
+  padding-right: 5px;
+  padding-left: 5px;
+}

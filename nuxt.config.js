@@ -74,7 +74,7 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
-    vendor: ['element-ui', 'moment'],
+    vendor: ['element-ui', 'moment', 'vue-dplayer'],
     extend(config, ctx) {
 
     }

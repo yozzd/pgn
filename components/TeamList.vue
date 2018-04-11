@@ -44,7 +44,7 @@
       </el-col>
     </el-row>
 
-    <el-dialog title="Employee Info" :visible.sync="dialogInfo" custom-class="dialog" width="25%" top="5vh" :close-on-click-modal="closeOn">
+    <el-dialog title="Employee Info" :visible.sync="dialogInfo" custom-class="dialog" width="25%" top="5vh" :close-on-click-modal="false">
       <img v-if="employee.image" :src="`/uploads/${employee.id}/${employee.image}`">
       <i v-else class="el-icon-plus avatarc-uploader-icon"></i>
       <table class="list">
@@ -64,9 +64,9 @@
           <td>{{employee.dobf}}</td>
         </tr>
         <tr>
-          <td>Education</td>
+          <td>Hobby</td>
           <td>:</td>
-          <td>{{employee.education}}</td>
+          <td>{{employee.hobby}}</td>
         </tr>
         <tr>
           <td colspan="3">
@@ -81,7 +81,7 @@
       :visible.sync="dialogStatus"
       @close="handleStatusClose('form')"
       width="25%"
-      :close-on-click-modal="closeOn">
+      :close-on-click-modal="false">
       <el-form
         :model="employee"
         :rules="rules"
@@ -132,13 +132,12 @@
       return {
         dialogInfo: false,
         dialogStatus: false,
-        closeOn: false,
         employee: {
           id: '',
           name: '',
           position: '',
           dobf: '',
-          education: '',
+          hobby: '',
           statusValue: '',
           statusLabel: '',
           image: ''
@@ -173,7 +172,7 @@
         this.employee.name = val.name;
         this.employee.position = val.position;
         this.employee.dobf = val.dobf;
-        this.employee.education = val.education;
+        this.employee.hobby = val.hobby;
         this.employee.image = val.image;
       },
       handleStatus(val) {

@@ -41,9 +41,9 @@
         width="150">
       </el-table-column>
       <el-table-column
-        property="education"
-        label="Education"
-        width="100">
+        property="hobby"
+        label="Hobby"
+        width="200">
       </el-table-column>
       <el-table-column
         label="Action">
@@ -53,7 +53,7 @@
       </el-table-column>
     </el-table>
 
-    <el-dialog title="Edit Employee" :visible.sync="dialogVisible" :close-on-click-modal="closeOn">
+    <el-dialog title="Edit Employee" :visible.sync="dialogVisible" :close-on-click-modal="false">
       <el-form label-position="left" :model="form" :rules="rules" ref="form" status-icon>
         <el-form-item label="Name" :label-width="formLabelWidth" prop="name">
           <el-input v-model="form.name" auto-complete="off"></el-input>
@@ -77,15 +77,8 @@
             style="width: 100%;">
           </el-date-picker>
         </el-form-item>
-        <el-form-item label="Education" :label-width="formLabelWidth" prop="education">
-          <el-select v-model="form.education" placeholder="Select" style="width: 100%;">
-            <el-option
-              v-for="item in education"
-              :key="item._id"
-              :label="item.name"
-              :value="item.name">
-            </el-option>
-          </el-select>
+        <el-form-item label="Hobby" :label-width="formLabelWidth">
+          <el-input v-model="form.hobby" auto-complete="off"></el-input>
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
@@ -129,7 +122,6 @@
     created() {
       this.$store.dispatch('team/list');
       this.$store.dispatch('position/list');
-      this.$store.dispatch('education/list');
     },
     computed: {
       list() {
@@ -137,22 +129,18 @@
       },
       position() {
         return this.$store.state.position.list;
-      },
-      education() {
-        return this.$store.state.education.list;
       }
     },
     data() {
       return {
         dialogVisible: false,
         formLabelWidth: '120px',
-        closeOn: false,
         form: {
           id: '',
           name: '',
           position: '',
           dob: '',
-          education: ''
+          hobby: ''
         },
         rules: {
           name: [
@@ -163,9 +151,6 @@
           ],
           dob: [
             {type: 'date', required: true, message: 'Please input employee date of birth', trigger: 'change'}
-          ],
-          education: [
-            {required: true, message: 'Please input employee education', trigger: 'blur'}
           ]
         }
       };
@@ -209,7 +194,7 @@
         this.form.name = row.name;
         this.form.position = row.position;
         this.form.dob = new Date(row.dob);
-        this.form.education = row.education;
+        this.form.hobby = row.hobby;
       },
       submit: function(form) {
         this.$refs[form].validate(async (valid) => {
@@ -219,7 +204,7 @@
               name: this.form.name,
               position: this.form.position,
               dob: this.form.dob,
-              education: this.form.education
+              hobby: this.form.hobby
             });
             if(this.$store.state.team.status === 200) {
               this.dialogVisible = false;

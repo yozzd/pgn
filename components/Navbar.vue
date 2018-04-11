@@ -7,7 +7,6 @@
             <span class="el-dropdown-link">Manage<i class="el-icon-arrow-down el-icon--right"></i></span>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item command="position">Position</el-dropdown-item>
-                <el-dropdown-item command="education">Education</el-dropdown-item>
                 <el-dropdown-item command="user">User</el-dropdown-item>
               </el-dropdown-menu>
           </el-dropdown>
@@ -27,7 +26,6 @@
       handleCommand(command) {
         const path = {
           position: '/position',
-          education: '/education',
           user: '/user'
         }
 

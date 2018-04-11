@@ -31,7 +31,7 @@
       </el-col>
     </el-row>
 
-    <el-dialog title="Edit Position" :visible.sync="dialogVisible" width="35%" :close-on-click-modal="closeOn">
+    <el-dialog title="Edit Position" :visible.sync="dialogVisible" width="35%" :close-on-click-modal="false">
       <el-form label-position="left" :model="form" :rules="rules" ref="form" status-icon>
         <el-form-item label="Name" :label-width="formLabelWidth" prop="name">
           <el-input v-model="form.name" auto-complete="off"></el-input>
@@ -57,7 +57,6 @@
       return {
         dialogVisible: false,
         formLabelWidth: '80px',
-        closeOn: false,
         form: {
           name: ''
         },

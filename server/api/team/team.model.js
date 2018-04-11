@@ -21,8 +21,9 @@ const TeamSchema = new Schema({
   dob: {
     type: Date
   },
-  education: {
-    type: String
+  hobby: {
+    type: String,
+    default: ''
   },
   status: [Status],
   image: {

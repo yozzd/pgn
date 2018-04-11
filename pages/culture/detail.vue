@@ -18,7 +18,7 @@
       </el-col>
     </el-row>
 
-    <el-dialog title="Add Culture" :visible.sync="dialogVisible" @close="closeDialog('form')" :close-on-click-modal="closeOn">
+    <el-dialog title="Add Culture" :visible.sync="dialogVisible" @close="closeDialog('upload')" :close-on-click-modal="false">
       <el-form label-position="left" :model="form" ref="form" status-icon>
         <el-form-item label="Upload" :label-width="formLabelWidth">
           <el-upload
@@ -69,7 +69,6 @@
       return {
         dialogVisible: false,
         formLabelWidth: '120px',
-        closeOn: false,
         form: {
           file: ''
         }
@@ -129,8 +128,8 @@
           }
         }
       },
-      closeDialog(form) {
-        this.$refs[form].resetFields();
+      closeDialog(upload) {
+        this.$refs[upload].clearFiles();
       }
     }
   }

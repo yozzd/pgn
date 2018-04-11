@@ -74,7 +74,7 @@ exports.update = async (req, res) => {
       name: req.body.name,
       position: req.body.position,
       dob: req.body.dob,
-      education: req.body.education
+      hobby: req.body.hobby
     });
     res.status(200).json({
       message: 'Employee succesfully updated'

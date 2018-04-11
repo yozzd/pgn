@@ -18,7 +18,7 @@
       </el-col>
     </el-row>
 
-    <el-dialog title="Add Product" :visible.sync="dialogVisible" @close="closeDialog('form')" :close-on-click-modal="closeOn">
+    <el-dialog title="Add Product" :visible.sync="dialogVisible" @close="closeDialog('form', 'upload')" :close-on-click-modal="false">
       <el-form label-position="left" :model="form" :rules="rules" ref="form" status-icon>
         <el-form-item label="Title" :label-width="formLabelWidth" prop="title">
           <el-input v-model="form.title" auto-complete="off"></el-input>
@@ -75,7 +75,6 @@
       return {
         dialogVisible: false,
         formLabelWidth: '120px',
-        closeOn: false,
         form: {
           title: '',
           description: '',
@@ -144,8 +143,9 @@
           }
         }
       },
-      closeDialog(form) {
+      closeDialog(form, upload) {
         this.$refs[form].resetFields();
+        this.$refs[upload].clearFiles();
       }
     }
   }

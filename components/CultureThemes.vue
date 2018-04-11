@@ -15,7 +15,7 @@
       </el-col>
     </el-row>
 
-    <el-dialog title="Set Culture" :visible.sync="dialogVisible" :close-on-click-modal="closeOn">
+    <el-dialog title="Set Culture" :visible.sync="dialogVisible" :close-on-click-modal="false">
       <el-form :model="form" ref="form">
         <el-form-item label="Theme">
           <el-input v-model="form.theme" auto-complete="off"></el-input>
@@ -40,7 +40,6 @@
     data() {
       return {
         dialogVisible: false,
-        closeOn: false,
         form: {
           id: '',
           theme: ''

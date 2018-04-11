@@ -3,7 +3,7 @@
 
     <el-row>
       <el-col :span="24">
-        <el-carousel :interval="5000" arrow="always" v-if="list.length">
+        <el-carousel :interval="5000" arrow="always" v-if="list.length" height="500px">
           <el-carousel-item v-for="item in list" :key="item._id">
             <nuxt-link :to="`/product/${item._id}/player`"><el-button type="text">{{ item.title }}</el-button></nuxt-link>
           </el-carousel-item>
@@ -36,7 +36,7 @@
     color: #ffffff;
     font-size: 18px;
     opacity: 0.75;
-    line-height: 300px;
+    line-height: 500px;
     margin: 0;
     width: 100%;
   }

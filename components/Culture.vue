@@ -43,7 +43,7 @@
     color: #ffffff;
     font-size: 18px;
     opacity: 0.75;
-    line-height: 300px;
+    line-height: 500px;
     margin: 0;
     width: 100%;
   }

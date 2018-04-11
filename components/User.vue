@@ -31,7 +31,7 @@
       </el-col>
     </el-row>
 
-    <el-dialog title="Change Password" :visible.sync="dialogVisible" @close="closeDialog('form')" width="35%" :close-on-click-modal="closeOn">
+    <el-dialog title="Change Password" :visible.sync="dialogVisible" @close="closeDialog('form')" width="35%" :close-on-click-modal="false">
       <el-form label-position="left" :model="form" :rules="rules" ref="form" status-icon>
         <el-form-item label="Old Password" prop="oldPassword">
           <el-input type="password" v-model="form.oldPassword" auto-complete="off"></el-input>
@@ -59,7 +59,6 @@
     data() {
       return {
         dialogVisible: false,
-        closeOn: false,
         form: {
           id: '',
           oldPassword: '',

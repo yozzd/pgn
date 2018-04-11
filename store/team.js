@@ -74,7 +74,7 @@ const actions = {
           position: val.position,
           dob: val.dob,
           dobf: moment(new Date(val.dob)).format('DD-MM-YYYY'),
-          education: val.education,
+          hobby: val.hobby,
           statusValue: getStatus === undefined ? 0 : getStatus.value,
           statusLabel: getStatus === undefined ? mapStatus[0] : mapStatus[getStatus.value],
           class: getStatus === undefined ? mapClass[0] : mapClass[getStatus.value],
@@ -105,9 +105,9 @@ const actions = {
       throw err;
     }
   },
-  async save ({ dispatch, commit }, { name, position, dob, education }) {
+  async save ({ dispatch, commit }, { name, position, dob, hobby }) {
     try {
-      const res = await this.$axios.post('/api/team', { name, position, dob, education });
+      const res = await this.$axios.post('/api/team', { name, position, dob, hobby });
       if(res.status === 200) {
         await dispatch('list');
         commit('RES_STATUS', { status: res.status, message: res.data.message });
@@ -131,9 +131,9 @@ const actions = {
       throw err;
     }
   },
-  async update ({ dispatch, commit }, { id, name, position, dob, education }) {
+  async update ({ dispatch, commit }, { id, name, position, dob, hobby }) {
     try {
-      const res = await this.$axios.put('/api/team/' + id, { name, position, dob, education });
+      const res = await this.$axios.put('/api/team/' + id, { name, position, dob, hobby });
       if(res.status === 200) {
         await dispatch('list');
         commit('RES_STATUS', { status: res.status, message: res.data.message });

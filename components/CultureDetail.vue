@@ -29,7 +29,7 @@
       </el-table-column>
     </el-table>
 
-    <el-dialog title="Edit Culture" :visible.sync="dialogVisible" :close-on-click-modal="closeOn">
+    <el-dialog title="Edit Culture" :visible.sync="dialogVisible" @close="closeDialog('upload')" :close-on-click-modal="false">
       <el-form label-position="left" :model="form" ref="form" status-icon>
         <el-form-item label="Upload" :label-width="formLabelWidth">
           <el-upload
@@ -72,7 +72,6 @@
         dialogVisible: false,
         dialogVisibleImage: false,
         formLabelWidth: '120px',
-        closeOn: false,
         form: {
           id: '',
           file: ''
@@ -115,6 +114,9 @@
             return false;
           }
         });
+      },
+      closeDialog(upload) {
+        this.$refs[upload].clearFiles();
       }
     }
   }

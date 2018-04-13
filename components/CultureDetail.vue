@@ -47,7 +47,7 @@
       </span>
     </el-dialog>
 
-    <el-dialog title="Image" :visible.sync="dialogVisibleImage" width="80%" custom-class="dialog" top="5vh">
+    <el-dialog title="Image" :visible.sync="dialogVisibleImage" width="70%" custom-class="dialog" top="5vh">
       <img :src="`/uploads/${this.form.id}/${this.form.file}`"></img>
       <span slot="footer" class="dialog-footer">
         <el-button size="small" @click="dialogVisibleImage = false">Close</el-button>

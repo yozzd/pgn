@@ -41,11 +41,7 @@
     width: 100%;
   }
 
-  .el-carousel__item:nth-child(2n) {
-    background-color: #99a9bf;
-  }
-
-  .el-carousel__item:nth-child(2n+1) {
-    background-color: #a3b4cc;
+  .el-carousel__item {
+    background-color: #1b1527;
   }
 </style>

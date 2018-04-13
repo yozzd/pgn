@@ -38,7 +38,6 @@
   .el-carousel__item {
     text-align: center;
   }
-
   .el-carousel__item .el-button {
     color: #ffffff;
     font-size: 18px;
@@ -47,12 +46,14 @@
     margin: 0;
     width: 100%;
   }
-
-  .el-carousel__item:nth-child(2n) {
-    background-color: #99a9bf;
+  .el-carousel__item > img {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
-
-  .el-carousel__item:nth-child(2n+1) {
-    background-color: #a3b4cc;
+  .el-carousel__item {
+    background-color: #1b1527;
   }
 </style>

@@ -4,7 +4,9 @@
       <el-col :span="24">
         <div class="nav-right" v-if="$auth.hasScope('admin')">
           <el-dropdown trigger="click" @command="handleCommand">
-            <span class="el-dropdown-link">Manage<i class="el-icon-arrow-down el-icon--right"></i></span>
+              <el-button plain size="small">
+                Manage<i class="el-icon-arrow-down el-icon--right"></i>
+              </el-button>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item command="position">Position</el-dropdown-item>
                 <el-dropdown-item command="user">User</el-dropdown-item>

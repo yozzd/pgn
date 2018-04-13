@@ -1,4 +1,5 @@
 const fse = require('fs-extra');
+const easyimage = require('easyimage');
 const path = require('path');
 const rootdir = path.normalize(__dirname + '/../../..');
 const Culture = require('./culture.model');
@@ -20,7 +21,16 @@ exports.upload = async (req, res) => {
     const save = await newCulture.save();
 
     await fse.ensureDir(`${rootdir}/static/uploads/${save._id}`);
-    await fse.move(req.file.path, `${rootdir}/static/uploads/${save._id}/${req.file.originalname}`, { overwrite: true });
+    const info = await easyimage.info(req.file.path);
+    if(info.width > 500) {
+      await easyimage.resize({
+        src: req.file.path,
+        dst: `${rootdir}/static/uploads/${save._id}/${req.file.originalname}`,
+        width: info.width / (info.height / 500)
+      });
+    } else {
+      await fse.move(req.file.path, `${rootdir}/static/uploads/${save._id}/${req.file.originalname}`, { overwrite: true });
+    }
 
     res.status(200).json({
       message: 'New culture succesfully created'
@@ -39,7 +49,16 @@ exports.uploadUpdate = async (req, res) => {
     await Culture.findByIdAndUpdate(req.params.id, {
       file: req.file.originalname
     });
-    await fse.move(req.file.path, `${rootdir}/static/uploads/${req.params.id}/${req.file.originalname}`, { overwrite: true });
+    const info = await easyimage.info(req.file.path);
+    if(info.width > 500) {
+      await easyimage.resize({
+        src: req.file.path,
+        dst: `${rootdir}/static/uploads/${req.params.id}/${req.file.originalname}`,
+        width: info.width / (info.height / 500)
+      });
+    } else {
+      await fse.move(req.file.path, `${rootdir}/static/uploads/${req.params.id}/${req.file.originalname}`, { overwrite: true });
+    }
     res.status(200).json({
       message: 'Culture succesfully updated'
     });

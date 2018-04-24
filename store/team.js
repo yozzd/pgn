@@ -96,7 +96,7 @@ const actions = {
           label: mapStatus[val.value],
           date: moment(new Date (val.date)).format('DD-MM-YYYY'),
           tag: mapTag[val.value],
-          timestamp: moment(new Date (val.date)).format('DD-MM-YYYY HH:mm')
+          timestamp: moment(new Date (val.timestamp)).format('DD-MM-YYYY HH:mm')
         }
       }));
       delete data.status;

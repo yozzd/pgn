@@ -8,6 +8,10 @@ const Status = new Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  timestamp: {
+    type: Date,
+    default: Date.now
   }
 });
 

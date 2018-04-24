@@ -112,6 +112,7 @@ exports.statusUpdate = async (req, res) => {
 
     if(index >= 0) {
       getOne.status[index].value = req.body.statusValue;
+      getOne.status[index].timestamp = Date.now();
       await getOne.save();
     } else {
       const newStatus = await Team.findById(req.params.id);
